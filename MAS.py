@@ -1,5 +1,5 @@
 import math
-import calculadoras as c
+import recursos as rec
 import numpy as np
 from matplotlib import pyplot as plt
 bucle=True
@@ -28,39 +28,18 @@ while bucle==True:
     if incognita=="X":
         valores=input(f"Por favor introduce las variables separadas por una coma en el siguiente orden (M,K,A,T): ")
         M,K,A,T=valores.split(",")
-        p1=c.CalculadoraPosicion(M,K,A,T)
+        M=float(M)
+        K=float(K)
+        A=float(A)
+        T=float(T)
+        p1=rec.CalculadoraPosicion(M,K,A,T)
         X,W=p1.posicion()
-        x = np.linspace(0, (T*2), 10000)
-        plt.xticks(range(0,100,10))
-        y = A*np.cos(W*T)
-        plt.plot(x, y, marker="o",color="red")
-        plt.xlabel("Tiempo")
-        plt.ylabel("Amplitud")
-        plt.title("Movimiento Armonico Simple")
-        plt.show()
+        p1=rec.Grafica(X,A,W,T)
+        p1.Representacion()
         print(f"La posicion de la masa en el momento {T} es de {X:.2f} metros")
 
 
-x = np.linspace(0, 10, 10000)
-plt.xticks(range(0,100,10))
-y = np.cos(x)
-x2=5
-y2=0.5
-fig = plt.figure()
-fig.clear()
-ax = fig.subplots(1,1)
 
-ax.plot(x, y)
-ax.plot(x, y2,marker="o",color="red",label="Tu posicion")
-
-
-plt.plot(x, y)
-plt.xlabel("Tiempo")
-plt.ylabel("Amplitud")
-plt.title("Movimiento Armonico Simple")
-ax.legend()
-fig.tight_layout()
-fig.show() 
 
 
   
