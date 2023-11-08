@@ -11,7 +11,7 @@ class CalculadoraPosicion:
         relleno=self.K/self.M
         W= (math.sqrt(relleno))
         X=self.A*math.cos(W*self.T)
-        return X
+        return X,W
     
 class CalculadoraMasa:
     def __init__(self,X,K, A, T):
@@ -65,6 +65,3 @@ class CalculadoraTiempo:
         Tsn=self.M*(inc**2)/(self.K)
         T=math.sqrt(Tsn)
         return T
-    
-
-

@@ -1,14 +1,67 @@
 import math
+import calculadoras as c
 import numpy as np
 from matplotlib import pyplot as plt
+bucle=True
+contador=0
+while bucle==True:
+    if contador==0:
+        print(f"Bienvenido a la Calculadora Original de Movimiento Armonico Simple (COMAS)")
+        print(f"Esta calculadora simula un MAS dado por un muelle unido a un peso en la tierra, cacula y representa la posicion de este a lo largo del tiempo")
+        print(f"COMAS puede calcular cualquier variable de este tipo de MAS siempre y cuando le suministres el resto de variables")
+        print(f"Si quieres una breve explicacion de los valores que hay que introducir escribe (Soy subnormal), de lo contrario;")
+        print()
+        incognita=input(f"Por favor introduce la incognita que quieras calcular en S.I (X,M,K,A,T):")
+        contador=1
+        
 
-x = np.linspace(0, 100, 10)
+    if incognita=="Soy subnormal":
+        print()
+        print(f"X: se refiere a la posicion actual de la masa unida al muelle, su unidad en S.I son los metros")
+        print(f"M: se refiere a la masa del cuerpo unido al extremo del muelle, su unidad en S.I son los kilogramos")
+        print(f"K: se refiere a la constante elastica del muelle calculada al dividir la fuerza aplicada entre su desplazamiento, su unidad en S.I son los Newtons/metro")
+        print(f"A: se refiere a la distancia inicial de la masa al punto de equilibrio de esta, esta coincide con la X maxima, su unidad en el S.I son los metros ")
+        print(f"T: se refiere al tiempo transcurrido desde que el movimiento empezo, que es cuando la masa se dejo completamente bajo la influencia del muelle, su unidad en S.I es segundos")
+        print()
+        incognita=input(f"Ahora que estas educado, introduce la incognita que quieras calcular en S.I (X,M,K,A,T):")
+
+    if incognita=="X":
+        valores=input(f"Por favor introduce las variables separadas por una coma en el siguiente orden (M,K,A,T): ")
+        M,K,A,T=valores.split(",")
+        p1=c.CalculadoraPosicion(M,K,A,T)
+        X,W=p1.posicion()
+        x = np.linspace(0, (T*2), 10000)
+        plt.xticks(range(0,100,10))
+        y = A*np.cos(W*T)
+        plt.plot(x, y, marker="o",color="red")
+        plt.xlabel("Tiempo")
+        plt.ylabel("Amplitud")
+        plt.title("Movimiento Armonico Simple")
+        plt.show()
+        print(f"La posicion de la masa en el momento {T} es de {X:.2f} metros")
+
+
+x = np.linspace(0, 10, 10000)
 plt.xticks(range(0,100,10))
 y = np.cos(x)
+x2=5
+y2=0.5
+fig = plt.figure()
+fig.clear()
+ax = fig.subplots(1,1)
+
+ax.plot(x, y)
+ax.plot(x, y2,marker="o",color="red",label="Tu posicion")
+
+
 plt.plot(x, y)
-plt.xlabel('x')
-plt.ylabel('cos(x)')
-plt.title('Grafico de la funcion coseno')
-plt.show()
+plt.xlabel("Tiempo")
+plt.ylabel("Amplitud")
+plt.title("Movimiento Armonico Simple")
+ax.legend()
+fig.tight_layout()
+fig.show() 
+
+
   
               
