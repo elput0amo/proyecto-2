@@ -83,7 +83,7 @@ class Grafica:
         fig, ax = plt.subplots(1)
         ax.set_xticks(range(0,math.ceil( 4/3*self.T), math.ceil(self.T/5)))
         ax.plot(x, y)
-        ax.plot(x2, y2,marker="o",color="red",label=f"Tu posicion({self.X:.2f},{self.T})")
+        ax.plot(x2, y2,marker="o",color="red",label=f"Tu posicion({self.X:.2f},{self.T})",linewidth=0)
         ax.set_xlabel("Tiempo (s)")
         ax.set_ylabel("Amplitud (m)")
         ax.set_title("Movimiento Armonico Simple")
