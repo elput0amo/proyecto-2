@@ -26,7 +26,9 @@ class CalculadoraMasa:
         relleno=self.X/self.A
         inc= (math.acos(relleno))
         M=self.K*(self.T**2)/(inc**2)
-        return M
+        inc2=self.K/M
+        W=math.sqrt(inc2)
+        return M,W
     
 class CalculadoraConstanteElastica:
     def __init__(self,M,X, A, T):
@@ -39,7 +41,9 @@ class CalculadoraConstanteElastica:
         relleno=self.X/self.A
         inc= (math.acos(relleno))
         K=self.M*(inc**2)/(self.T**2)
-        return K
+        inc2=K/self.M
+        W=math.sqrt(inc2)
+        return K,W
     
 class CalculadoraAmplitud:
     def __init__(self,M,K, X, T):
@@ -52,7 +56,7 @@ class CalculadoraAmplitud:
         relleno=self.K/self.M
         W= (math.sqrt(relleno))
         A=self.X/math.cos(W*self.T)
-        return A
+        return A,W
     
 class CalculadoraTiempo:
     def __init__(self,M,K, A, X):
@@ -66,7 +70,9 @@ class CalculadoraTiempo:
         inc= (math.acos(relleno))
         Tsn=self.M*(inc**2)/(self.K)
         T=math.sqrt(Tsn)
-        return T
+        inc2=self.K/self.M
+        W=math.sqrt(inc2)
+        return T,W
     
 class Grafica:
     def __init__(self,X,A,W,T):
@@ -82,7 +88,7 @@ class Grafica:
         y2=self.X
         fig, ax = plt.subplots(1)
         ax.set_xticks(range(0,math.ceil( 4/3*self.T), math.ceil(self.T/5)))
-        ax.plot(x, y)
+        ax.plot(x, y,colour="black")
         ax.plot(x2, y2,marker="o",color="red",label=f"Tu posicion({self.X:.2f},{self.T})",linewidth=0)
         ax.set_xlabel("Tiempo (s)")
         ax.set_ylabel("Amplitud (m)")
