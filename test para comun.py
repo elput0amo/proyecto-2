@@ -1,24 +1,31 @@
-from sympy import symbols, diff, simplify, pprint
+import math
+import recursos as rec
+import numpy as np
+from matplotlib import pyplot as plt
 
-def calcular_derivada():
-    # Definir la variable simbólica
-    x = symbols('x')
 
-    # Pedir al usuario que ingrese la función
-    expresion = input("Ingresa la función en términos de x: ")
+class Grafica:
+    def __init__(self,X,A,W,T):
+        self.X=X
+        self.A=A
+        self.W=W
+        self.T=T
+    def Representacion(self):
 
-    try:
-        # Convertir la entrada del usuario en una expresión simbólica
-        funcion = simplify(expresion)
+        x = np.linspace(0,math.ceil(4/3*self.T), 10000)
+        y = self.A*np.cos(self.W*x)
+        x2=self.T
+        y2=self.X
+        fig, ax = plt.subplots(1)
+        ax.set_xticks(range(0,math.ceil( 4/3*self.T), math.ceil(self.T/5)))
+        ax.plot(x, y,colour="black")
+        ax.plot(x2, y2,marker="o",color="red",label=f"Tu posicion({self.X:.2f},{self.T})",linewidth=0)
+        ax.set_xlabel("Tiempo (s)")
+        ax.set_ylabel("Amplitud (m)")
+        ax.set_title("Movimiento Armonico Simple")
+        ax.legend()
+        fig.tight_layout()
+        plt.show()
 
-        # Calcular la derivada de la función
-        derivada = diff(funcion, x)
-
-        # Imprimir la derivada simplificada
-        pprint(derivada)
-
-    except Exception as e:
-        print("Error al procesar la entrada:", e)
-
-# Llamar a la función para calcular la derivada
-calcular_derivada()
+p1=Grafica(2,3,4,5)
+p1.Representacion()
