@@ -17,29 +17,29 @@ El Movimiento Armónico Simple (MAS) asociado a un muelle se rige por la ley de 
 
 ## Ley de Hooke
 
-La fuerza (\( F \)) ejercida por un muelle es proporcional a la elongación (\( x \)) desde su posición de equilibrio. La constante de proporcionalidad es la constante elástica (\( k \)) del muelle.
+La fuerza ( F ) ejercida por un muelle es proporcional a la elongación (\( x \)) desde su posición de equilibrio. La constante de proporcionalidad es la constante elástica ( k ) del muelle.
 
 \[ F = -kx \]
 
-## Frecuencia Angular (\( \omega \))
+## Frecuencia Angular ( omega )
 
 La frecuencia angular es la velocidad angular del movimiento y está relacionada con la constante elástica (\( k \)) y la masa (\( m \)) del objeto unido al muelle.
 
-\[ \omega = \sqrt{\frac{k}{m}} \]
+\[ omega = raiz( k/m ) ]
 
-## Periodo (\( T \))
+## Periodo ( T )
 
 El periodo es el tiempo que tarda en completarse un ciclo completo del movimiento armónico simple. Está inversamente relacionado con la frecuencia angular.
 
-\[ T = \frac{2\pi}{\omega} \]
+\[ T = (2*pi)/( omega ) ]
 
-## Posición en Función del Tiempo (\( x(t) \))
+## Posición en Función del Tiempo ( x(t) )
 
-La posición de la masa en función del tiempo se expresa mediante la amplitud (\( A \)), la frecuencia angular (\( \omega \)), y el tiempo (\( t \)).
+La posición de la masa en función del tiempo se expresa mediante la amplitud ( A ), la frecuencia angular ( omega ), y el tiempo ( t ).
 
-\[ x(t) = A \cos(\omega t + \phi) \]
+\[ x(t) = A * cos(omega * t + phi) ]
 
-Donde (\( \phi \)) es la fase inicial.
+Donde ( phi ) es la fase inicial.
 
 Estas fórmulas proporcionan la base para calcular y comprender el Movimiento Armónico Simple asociado a un muelle. Al conocer las condiciones iniciales y las propiedades del sistema, es posible determinar la posición, velocidad, aceleración y otras características del movimiento a lo largo del tiempo.
 
