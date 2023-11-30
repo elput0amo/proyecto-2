@@ -8,6 +8,7 @@ bucle=True
 contador=0
 basura=[]
 nbasura=0
+incognita="nada"
 #aqui es donde estan ciertas variables que voy a usar en un futuro, como todo esta dentro de un bucle aqui es donde tengo que especificarlas
 
 #y aqui es donde comienza la magia
@@ -41,7 +42,7 @@ while bucle==True:
 #pequeña explicacion fisica y te dice en que unidades hay que meter todo, esto es conocimiento comun, pero x si alguien no lo sabe
 #perdon por el nombre de algunas cosas, necesito hacer estas bromas para mantenerme despierto
 
-    if funcion =="calculadora":
+    if funcion =="calcular":
         incognita=input(f"Por favor, introduce la incognita que quieras calcular (X,M,K,A,T) o (Comandos) para volver atras: ").lower()
 #aqui es donde esta la funcion principal de todo, las formulas cambian dependiendo de la incognita, no queda otra que usar varias variables
 
@@ -121,7 +122,7 @@ while bucle==True:
         incognita=input(f"Si quieres seguir calculando escribe la incognita a calcular (X,M,K,A,T) o (Comandos) para volver atras: ")
 #la verdad es que todo este codigo podria haberlo copiado y pegado para el proyecto grupal y habria quedado d locos, pero era abusar
 
-    elif incognita not in ["x", "m", "k", "a", "t", "comandos"]:
+    elif incognita not in ["x", "m", "k", "a", "t", "comandos","nada"]:
         print(f"Esta incognita no esta reconocida, porfavor escribe correctamente")
         print(f"Si quieres volver a la calculadora, introduce tu incognita (X,M,K,A,T), de lo contrario escribe (Comandos) para ver las opciones")
         incognita=input(f"").lower()
@@ -166,7 +167,7 @@ while bucle==True:
         funcion=input(f"Si quieres representar otra grafica escribe (grafica), si quieres volver atras escribe (Comandos) ").lower()
 #literalmente la funcion que uso para la calculadora pero mas facil
 
-    elif funcion not in ["soy subnormal", "calculadora", "grafica", "sugerencias", "finalizar"]:
+    if funcion not in ["soy subnormal", "calculadora", "grafica", "sugerencias", "finalizar"]:
         print("Esta función no está reconocida. Por favor, elige una opción válida: ")
         print("Si quieres ver las opciones disponibles, escribe (Comandos):")
         funcion = input().lower()
@@ -176,7 +177,7 @@ while bucle==True:
     if funcion =="finalizar":
         ip=rec.obtener_ip()
         print("Muchas gracias por usar nuestros servicios")
-        print(f"Estashan sido tus sugerencias: {basura}, no haremos caso a ninguna")
+        print(f"Estas han sido tus sugerencias: {basura}, no haremos caso a ninguna")
         print(f"Ah, y por cierto, has vendido tu metaforica alma virtual al usar este programa, tenemos tu ip, sabemos donde vives y vamos a por ti")
         print(f"Gracias por su colaboracion {ip}")
         bucle=False
