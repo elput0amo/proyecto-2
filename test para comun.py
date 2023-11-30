@@ -10,7 +10,7 @@ class Grafica:
         self.A=A
         self.W=W
         self.T=T
-    def Representacion(self):
+    def RepresentacionSin(self):
 
         x = np.linspace(0,math.ceil(4/3*self.T), 10000)
         y = self.A*np.cos(self.W*x)
